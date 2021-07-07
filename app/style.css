@@ -15,20 +15,23 @@ body{
 }
 .chat-box{
     position: relative;
-    width: 600px;
-    height: 650px;
+    width: 1200px;
+    height: 800px;
     background: white;
     overflow: hidden;
     border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+   /*  opacity: 0.7; */
 }
 
 /* friends div */
 .friends{
-    width: 40%;
+    width: 35%;
     height: 100%;
     float: left;
     background: #2980b9;
     margin-right: 20px;
+    
 }
 /* user */
 .user{
@@ -38,6 +41,7 @@ body{
     height: 80px;
     background: #2980b9;
     border-bottom: 2px solid #fff;
+    /* background-color: rgba(255, 255, 255, 0.4); */
 }
 .user img{
     width: 50px;
@@ -59,6 +63,7 @@ body{
     background: #77b3d4;;
 }
 .add-friends{
+    height: 40px;
     border-top: 2px solid #fff;
     padding: 5%;
     display: flex;
@@ -79,3 +84,27 @@ input[type="submit"]:hover{
     text-align: center;
 }
 /* end of chats div */
+
+#ip2 {
+    border-radius: 25px;
+    border: 2px solid #609;
+    padding: 20px; 
+    width: 200px;
+    height: 1px;    
+}
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 20px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    position: relative;
+    left: 15px;
+  }
