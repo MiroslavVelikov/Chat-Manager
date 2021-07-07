@@ -1,0 +1,81 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    font-family: montserrat;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    overflow: hidden;
+}
+.contaner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-box{
+    position: relative;
+    width: 600px;
+    height: 650px;
+    background: white;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+/* friends div */
+.friends{
+    width: 40%;
+    height: 100%;
+    float: left;
+    background: #2980b9;
+    margin-right: 20px;
+}
+/* user */
+.user{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 80px;
+    background: #2980b9;
+    border-bottom: 2px solid #fff;
+}
+.user img{
+    width: 50px;
+    height: 50px;
+    margin: 5%;
+    border-radius: 50%;
+    background: #fff;
+}
+.user-info{
+    color: #fff;
+    padding: 1%;
+}
+/* end of user */
+
+.friends-list{
+    height: 75%;
+    padding: 5%;
+    overflow: auto;
+    background: #77b3d4;;
+}
+.add-friends{
+    border-top: 2px solid #fff;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2980b9;
+}
+input[type="submit"]:hover{
+    border-color: #2691d9;
+    transform: .5s;
+}
+/* end of friends div */
+
+/* chats div */
+.chats{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+/* end of chats div */
