@@ -17,9 +17,18 @@
             <div class="center">          
                 <p>Your name</p>
             </div> 
-            <div class="center">
-                <button class="button button1">CONTINUE</button>
-            </div> 
+            <form method="POST"> 
+                <div class="center">
+                    <button class="button button1">CONTINUE</button>
+                    <script>
+                        var button = document.getElementsByClassName("button");
+
+                        button.addEventListener("click", function(){
+                            document.location.href = 'http://127.0.0.1:5500/app/index.html';
+                        });
+                    </script>
+                </div> 
+            </form>
         </div>
     </body>
 </html>
