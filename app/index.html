@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="logic.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <title>Chat</title>
 </head>
@@ -22,9 +23,9 @@
             <div class="friends-list">
                 <label id="no-friends">Looks like you have not added any friends yet. Invite friends to chat with!</label>
                 <ul class="list">
-                    <li>Miro</li>
-                    <li>Gosho</li>
-                    <li>Pesho</li>
+                    <li onclick="changeColor(this)">Miro</li>
+                    <li onclick="changeColor(this)">Gosho</li>
+                    <li onclick="changeColor(this)">Pesho</li>
                 </ul>
             </div>
             
@@ -38,23 +39,20 @@
 
         <!-- Chats -->
         <div class="chats">
-            <div class="messege-to">
-                <!-- I still do not know how to implement my idea so this button will be commented for now
-                <button><i class="fa fa-cog" aria-hidden="true"></i></button>
-                 -->
+            <div class="message-to">
                 <img src="./images/user_icon.png" alt="user">
                 <div class="user-info">
-                    <h2 id="messege-to">Username</h2>
+                    <h2 id="message-to">Username</h2>
                 </div>
             </div>
-            <div class="messeges">
+            <div class="messages">
                 <div class="my-chat">Hi</div>
                 <div class="friend-chat">Hi</div>
                 <div class="my-chat">Working?</div>
                 <div class="friend-chat">I guess!</div>
             </div>
             <form method="SEND">
-                <div class="send-messege">
+                <div class="send-message">
                     <input type="text" required id="ip1">
                     <button class="send"><i class="fa fa-paper-plane"></i></button>
                 </div>
