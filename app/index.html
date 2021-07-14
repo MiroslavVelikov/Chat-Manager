@@ -18,8 +18,19 @@
                 <div class="user-info">
                     <h2 id="my-username">Username</h2>
                 </div>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+                <button class="delete" id="btnDelete" onclick="confirmPromp()"><i class="fa fa-trash"></i></button>
+                <!-- The Modal -->
+                <div id="deleteModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1 class="modal-text">Your account will be deleted from this application</h1>
+                    <h2 class="modal-text">By deleting your profile, you agree to disable all chats with your friends</h2>
+                    <button class="btn-agree" onclick="deleteUser()">Agree</button>
+                </div>
+              </div>
             </div>
+
             <div class="friends-list">
                 <label id="no-friends">Looks like you have not added any friends yet. Invite friends to chat with!</label>
                 <ul class="list">
@@ -50,6 +61,22 @@
                 <div class="friend-chat">Hi</div>
                 <div class="my-chat">Working?</div>
                 <div class="friend-chat">I guess!</div>
+                <div class="my-chat">Hi</div>
+                <div class="friend-chat">Hi</div>
+                <div class="my-chat">Working?</div>
+                <div class="friend-chat">I guess!</div>
+                <div class="my-chat">Hi</div>
+                <div class="friend-chat">Hi</div>
+                <div class="my-chat">Working?</div>
+                <div class="friend-chat">I guess!</div>
+                <div class="my-chat">Hi</div>
+                <div class="friend-chat">Hi</div>
+                <div class="my-chat">Working?</div>
+                <div class="friend-chat">I guess!</div>
+                <div class="my-chat">Hi</div>
+                <div class="friend-chat">Hi</div>
+                <div class="my-chat">Working?</div>
+                <div class="friend-chat">I guess!</div>
             </div>
             <form method="SEND">
                 <div class="send-message">
@@ -59,5 +86,10 @@
             </form>
         </div>
     </div>
+
+    <!-- <script>
+        let scrollbar = document.getElementsByClassName("messages");
+        scrollbar.scrollTop = scrollbar.scrollHeight;
+    </script> -->
 </body>
 </html>
