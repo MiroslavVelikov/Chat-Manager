@@ -24,14 +24,22 @@
                 <div class="user-info">
                     <h2 id="my-username">{{ Sentinel::getUser()['first_name'] }} </h2>
                 </div>
-                <form action="{{ route('logout') }}" method="GET">
-                    <div class="user-remove">
-                        {{-- <input style="display:none" type="text" id="userName" name="userName"
-                            value="{{ $userName }}" /> --}}
-                        <button class="delete"><i class="fa fa-trash"></i></button>
+                <div class="delete">
+                    <button id="btnDelete" onclick="confirmPromp()"><i class="fa fa-trash"></i></button>
+                </div>
+                <!-- The Modal For Deleting -->
+                <div id="deleteModal" class="modal">
+                    <!-- Modal content /deleting/ -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1 class="modal-text">Deleting account</h1>
+                        <h2 class="modal-text">By doing this, you agree to delete all your chats and user connections.
+                        </h2>
+                        <button class="btn-agree" onclick="deleteUser()">Agree</button>
                     </div>
-                </form>
+                </div>
             </div>
+
             <div class="friends-list">
                 <label id="no-friends">Looks like you have not added any friends yet. Invite friends to chat
                     with!</label>
@@ -41,13 +49,9 @@
                             <div>
                                 <form action="{{ route('getMessage') }}" method="GET">
                                     @csrf
-                                    <div class="friend">
-                                        <input type="text" style="display:none" name="friendName"
-                                            value="{{ $row }}">
-                                        <li>
-                                            <button class="friend-name">{{ $row }}</></button>
-                                        </li>
-                                    </div>
+                                    <input type="text" style="display:none" name="friendName"
+                                        value="{{ $row }}">
+                                    <button class="friend-name">{{ $row }}</></button>
                                 </form>
                             </div>
                         @endforeach
@@ -58,51 +62,56 @@
             <form action="{{ route('add-frind') }}" method="POST">
                 @csrf
                 <div class="add-friends">
-                    <input type="text" placeholder="Find friends" required id="ip2" name="friendName">
+                    <input type="text" placeholder="Find friend" required id="ip2" name="friendName" autocomplete="off">
                     <button class="button button1"><i class="fa fa-plus"></i></button>
                 </div>
             </form>
         </div>
-
+        <script>
+            confirmPromp();
+        </script>
         <!-- Chats -->
         <div class="chats">
-            <div class="message-to">
-                <img src="./images/user_icon.png" alt="user">
+            <div class="friend">
                 <div class="user-info">
                     @if (!empty($friendName))
                         <h2 id="message-to">{{ $friendName }}</h2>
                     @endif
                 </div>
+                <img src="./images/user_icon.png" alt="user">
             </div>
-            <div class="messages">
-                @if (!empty($messages))
-                    @foreach ($messages as $row)
-                        @if ($row['user'] == 'me')
-                            <div class="my-chat">{{ $row['message'] }}</div>
+            {{-- sadasdasddasda --}}
+            <div id="wrapper">
+                <div class="scrollbar" id="style-1">
+                    <div class="force-overflow">
+                        @if (!empty($messages))
+                            @foreach ($messages as $row)
+                                @if ($row['user'] == 'me')
+                                    <div class="my-chat">{{ $row['message'] }}</div>
+                                @endif
+                                @if ($row['user'] == 'him')
+                                    <div class="friend-chat">{{ $row['message'] }}</div>
+                                @endif
+                            @endforeach
                         @endif
-                        @if ($row['user'] == 'him')
-                            <div class="friend-chat">{{ $row['message'] }}</div>
-                        @endif
-                    @endforeach
-                @endif
-                {{-- @if (!empty($myMessages))
-                    @foreach ($myMessages as $row)
-                        <div class="my-chat">{{ $row }}</div>
-                    @endforeach
-                @endif
-                @if (!empty($frMessages))
-                    @foreach ($frMessages as $row)
-                        <div class="friend-chat">{{ $row }}</div>
-                    @endforeach
-                @endif --}}
+                        <script>
+                            var element = document.getElementById("style-1");
+                            element.scrollTop = element.scrollHeight - 1;
+                        </script>
+                    </div>
+                </div>
             </div>
+
+            {{-- asdasdasdasd --}}
+
             <form action="{{ route('postMessage') }}" method="POST">
                 @csrf
                 <div class="send-message">
                     @if (!empty($friendName))
                         <input type="text" style="display:none" name="friendName" value="{{ $friendName }}">
                     @endif
-                    <input type="text" required id="ip1" name="chat_message">
+                    <label onclick="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i></label>
+                    <input type="text" required id="ip1" name="chat_message" autocomplete="off">
                     <button class="send"><i class="fa fa-paper-plane"></i></button>
                 </div>
             </form>

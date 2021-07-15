@@ -22,7 +22,7 @@ body{
 
 /* friends div */
 .friends{
-    width: 35%;
+    width: 340px;
     height: 100%;
     float: left;
     background: #2980b9;
@@ -31,95 +31,164 @@ body{
 /* user */
 .user{
     display: flex;
-    justify-content: start;
     align-items: center;
     height: 80px;
     background: #110022;
-    border-bottom: 2px solid #fff;
+    /* border-bottom: 2px solid #fff; */
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
 .user img{
     width: 50px;
     height: 50px;
-    margin: 5%;
+    margin-right: 15px;
+    margin-left: 30px;
     border-radius: 50%;
     background: #fff;
 }
 .user-info{
     color: #fff;
-    padding: 1%;
-    padding-right: 38%;
 }
-.delete{
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 300px;
+    left: 0;
+    top: 0;
+    padding-right: 30%;
+    padding-left: 25%;
+    width: 50%;
+    height: 120%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    border: none;
+    background-color: rgb(185, 185, 185);
+    border-radius: 15px;
+    margin: auto;
+    padding: 10px;
+    width: 60%;
+    height: 17%;
+} 
+/* The Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    padding: 10px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: rgb(219, 36, 36);;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-text {
+    font-family: monospace;
+    font-size: 160%;
+    color: #000;
+    padding-left: 20px;
+}
+.btn-agree {
+    position: absolute; 
+    border: none;
+    right: 45%;
+    margin: 1%;
+    font-size: 100%;
+    color: white;
+    padding: 0.7%;
+    padding-right: 5%;
+    padding-left: 5%;
+    bottom: 62%;
+    border-radius: 10px;
+    background-color: #04AA6D;
+    cursor: pointer;
+}
+.btn-agree:hover {
+    border: 1px solid #fff;
+    transform: .5s;
+}
+.delete {
+    position: absolute;
+    padding-left: 190px;
+}
+#btnDelete{
     background-color: rgb(219, 36, 36);
+    width: 45px;
+    height: 45px;
     border: none;
     color: white;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 15px;
-    margin: 20px 2px;
     cursor: pointer;
-    border-radius: 12px;
-    position: relative;
+    border-radius: 10px;
+    position:sticky;
+    right: 10px;
+    margin-left: 85px;
 }
-.delete:hover{
+#btnDelete:hover{
     border: 1px solid #fff;
     transform: .5s;
 }
 /* end of user */
 
 .friends-list{
-    height: 75%;
-    padding: 5%;
+    height: 640px;
     overflow: auto;
     background: linear-gradient(220deg, #2980b9, #8e44ad);
 }
 #no-friends{
-    margin-top: 50%;
-    text-align: center;
+    margin-top: 240px;
+    margin-left: 40px;
+    margin-right: 20px;
     display: inline-block;
     font-family: monospace;
-    font-size: 200%;
+    font-size: 24px;
     color: #fff;
     font-style: italic;
-    
-    display:none
+    display:none;
 }
-/* .list li{
+.list button{
     list-style: none;
     height: 45px;
+    width: 70%;
     line-height: 45px;
+    font-family: monospace;
+    font-size: 150%;
     position: relative;
-    background: #f2f2f2;
-    border-radius: 25px;
+    background: #DCDCDC;
+    border: none;
+    border-radius: 10px;
     margin-bottom: 5px;
     padding: 0 15px;
+    left: 10%;
     cursor: pointer;
-} */
-
-.friend-name {
-    list-style: none;
-    width: 200px;
-    height: 45px;
-    line-height: 45px;
-    position: relative;
-    background: #f2f2f2;
+}
+#ip2 {
     border-radius: 25px;
-    margin-bottom: 5px;
-    padding: 0 15px;
-    cursor: pointer;
+    border: 2px solid #609;
+    background: #DCDCDC;
+    padding: 20px; 
+    width: 100px;
+    height: 1px;   
+    margin: 10px;
+    margin-right: 20px; 
+    font-size: 16px;
+    padding-right: 30%;
 }
 
 .add-friends{
-    height: 40px;
-    border-top: 2px solid #fff;
-    padding: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80px;
     background: #110022;
+    /* border-top: 2px solid #fff; */
 }
 /* end of friends div */
 
@@ -129,26 +198,26 @@ body{
     margin-right: auto;
     text-align: center;
 }
-.message-to{
+.friend{
     display: flex;
-    justify-content: start;
     align-items: center;
+    justify-content: flex-end;
+    text-align: right;
     height: 80px;
     background: #110022;
-    min-width: 5px;
-    padding-left: 40%;
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
-.message-to img{
+.friend img{
     width: 50px;
     height: 50px;
-    margin: 5%;
     border-radius: 50%;
     background: #fff;
+    margin-right: 30px;
+    margin-left: 15px;
 }
-.messages{
-    height: 645px;
-    overflow: auto;
+.scrollbar{
+    height: 640px;
+    overflow-y: auto;
 }
 .my-chat{
     width: 60%;
@@ -171,25 +240,27 @@ body{
 #ip1{
     border-radius: 25px;
     border: 2px solid #609;
+    background: #DCDCDC;
     padding: 20px; 
-    width: 80%;
+    width: 70%;
     height: 1px;   
     margin: 20px; 
     font-size: 16px;
 }
 .send-message{
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     height: 80px;
     background: #110022;
     min-width: 200px;
 }
-.send{
+.send-message button {
     background-color: #04AA6D;
     border: none;
+    width: 45px;
+    height: 45px;
     color: white;
-    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -198,29 +269,36 @@ body{
     cursor: pointer;
     border-radius: 12px;
     position: relative;
+    /* left: 15px; */
 }
-.send:hover{
+.send-message button:hover{
     border: 1px solid #fff;
     transform: .5s;
 }
-/* end of chats div */
-
-#ip2 {
-    border-radius: 25px;
-    border: 2px solid #609;
-    padding: 20px; 
-    width: 200px;
-    height: 1px;   
-    margin: 10px; 
-    font-size: 16px;
-    padding-right: 30%;
+.send-message label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #04AA6D;
+    border: none;
+    width: 45px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    /* left: 15px; */
 }
-
+.send-message label:hover{
+    border: 1px solid #fff;
+    transform: .5s;
+}
 .button {
     background-color: #04AA6D;
     border: none;
     color: white;
     padding: 15px;
+    width: 45px;
+    height: 45px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -235,6 +313,7 @@ body{
     border: 1px solid #fff;
     transform: .5s;
 }
+/* end of chats div */
   /* ------------------------------------------ LOGIN ------------------------------------------ */
 
   .login-box{
@@ -272,3 +351,61 @@ body{
     align-items: center;
     height: 100px;
   }
+
+  /* custom */
+  header
+  {
+      font-family: 'Lobster', cursive;
+      text-align: center;
+      font-size: 25px;	
+  }
+  
+  #info
+  {
+      font-size: 18px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 25px;
+  }
+  
+  a{
+      color: #074E8C;
+  }
+  
+.scrollbar {
+      height: 640px;
+      width: 850px;
+      overflow-y: scroll;
+}
+  
+  .force-overflow {
+      min-height: 450px;
+  }
+  
+  #wrapper
+  {
+      text-align: center;
+      width: 500px;
+      margin: auto;
+  }
+  
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}

@@ -1,5 +1,3 @@
-@section('ds')
-@stop
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="style.css">
     <script src="logic.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
@@ -20,36 +17,39 @@
         <!-- Friends -->
         <div class="friends">
             <div class="user">
-                <img src="{{ asset('./images/user_icon.png') }}" alt="user">
+                <img src="./images/user_icon.png" alt="user">
                 <div class="user-info">
-                    <h2 id="my-username">{{ Sentinel::getUser()['first_name'] }} </h2>
+                    <h2 id="my-username">dsdsad</h2>
                 </div>
-                <form action="{{ route('logout') }}" method="GET">
-                    <div class="user-remove">
-                        {{-- <input style="display:none" type="text" id="userName" name="userName"
-                            value="{{ $userName }}" /> --}}
-                        <button class="delete"><i class="fa fa-trash"></i></button>
+                <div class="delete">
+                    <button id="btnDelete" onclick="confirmPromp()"><i class="fa fa-trash"></i></button>
+                </div>
+                <!-- The Modal For Deleting -->
+                <div id="deleteModal" class="modal">
+                    <!-- Modal content /deleting/ -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1 class="modal-text">Deleting account</h1>
+                        <h2 class="modal-text">By doing this, you agree to delete all your chats and user connections.
+                        </h2>
+                        <button class="btn-agree" onclick="deleteUser()">Agree</button>
                     </div>
-                </form>
+                </div>
             </div>
+
             <div class="friends-list">
                 <label id="no-friends">Looks like you have not added any friends yet. Invite friends to chat
                     with!</label>
                 <ul class="list">
-                    @if (!empty($table))
-                        @foreach ($table as $row)
-                            <li>
-                                {{ $row }}
-                            </li>
-                        @endforeach
-                    @endif
+                    <button class="friend-name">Miro</button>
+                    <button class="friend-name">Gosho</button>
+                    <button class="friend-name">Pesho</button>
                 </ul>
             </div>
 
-            <form action="{{ route('add-frind') }}" method="POST">
-                @csrf
+            <form method="GET">
                 <div class="add-friends">
-                    <input type="text" placeholder="Find friends" required id="ip2" name="friendName">
+                    <input type="text" placeholder="Add friend" required id="ip2" autocomplete="off">
                     <button class="button button1"><i class="fa fa-plus"></i></button>
                 </div>
             </form>
@@ -57,21 +57,56 @@
 
         <!-- Chats -->
         <div class="chats">
-            <div class="message-to">
-                <img src="./images/user_icon.png" alt="user">
+            <div class="friend">
                 <div class="user-info">
-                    <h2 id="message-to">Username</h2>
+                    <h2 id="message-to">v15674dasdasd</h2>
+                </div>
+                <img src="./images/user_icon.png" alt="user">
+            </div>
+
+            <div id="wrapper">
+                <div class="scrollbar" id="style-1">
+                    <div class="force-overflow">
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                        <div class="my-chat">Hi</div>
+                        <div class="friend-chat">Hi</div>
+                        <div class="my-chat">Working?</div>
+                        <div class="friend-chat">I guess!</div>
+                    </div>
                 </div>
             </div>
-            <div class="messages">
-                <div class="my-chat">Hi</div>
-                <div class="friend-chat">Hi</div>
-                <div class="my-chat">Working?</div>
-                <div class="friend-chat">I guess!</div>
-            </div>
-            <form method="POST">
+
+            <form method="SEND">
                 <div class="send-message">
-                    <input type="text" required id="ip1">
+                    <button onclick="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                    <input type="text" id="ip1" autocomplete="off">
                     <button class="send"><i class="fa fa-paper-plane"></i></button>
                 </div>
             </form>

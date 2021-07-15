@@ -36,7 +36,7 @@ use App\SaleItem;
 use Facade\FlareClient\View as FlareClientView;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
+use Illuminate\Support\Arr;
 
 class FrontEndController extends Controller
 {
@@ -98,9 +98,35 @@ class FrontEndController extends Controller
     public function getLogout(Request $request)
     {
         $userID = Sentinel::getUser()['id'];
+        $chats =  \DB::table('chats')->get();
+
+        if ($chats != null) {
+            foreach ($chats as $connection) {
+                $users = explode('_', $connection->users_connections);
+
+                if ($users[0] == $userID) {
+                    if (\DB::table('chats')->where('users_connections',  $connection->users_connections)->first() != null) {
+                        \DB::table('chats')->where('users_connections',  $connection->users_connections)->delete();
+                    }
+                    if (\DB::table('chats')->where('users_connections',  strrev($connection->users_connections))->first() != null) {
+                        \DB::table('chats')->where('users_connections', strrev($connection->users_connections))->delete();
+                    }
+                } elseif ($users[1] == $userID) {
+                    if (\DB::table('chats')->where('users_connections',  $connection->users_connections)->first() != null) {
+                        \DB::table('chats')->where('users_connections',  $connection->users_connections)->delete();
+                    }
+                    if (\DB::table('chats')->where('users_connections',  strrev($connection->users_connections))->first() != null) {
+                        \DB::table('chats')->where('users_connections', strrev($connection->users_connections))->delete();
+                    }
+                }
+            }
+        }
 
         Sentinel::logout();
+
         \DB::table('users')->where('id', $userID)->delete();
+        \DB::table('users_connections')->where('c_user_id', $userID)->delete();
+        \DB::table('users_connections')->where('o_role_id', $userID)->delete();
 
         return Redirect::to('/');
     }
@@ -132,6 +158,11 @@ class FrontEndController extends Controller
     public function postAddFriend(Request $request)
     {
         $currentUserId = Sentinel::getUser()['id'];
+
+        if (\DB::table('users')->where('first_name', $request->friendName)->first() == null) {
+            return Redirect::to('/');
+        }
+
         $friendId = \DB::table('users')->where('first_name', $request->friendName)->first()->id;
 
         $isThere = \DB::table('users_connections')->where('o_role_id', $friendId)->first();
@@ -141,6 +172,12 @@ class FrontEndController extends Controller
                 [
                     'c_user_id' => $currentUserId,
                     'o_role_id' => $friendId
+                ]
+            );
+            $id2 = DB::table('users_connections')->insertGetId(
+                [
+                    'c_user_id' => $friendId,
+                    'o_role_id' => $currentUserId
                 ]
             );
         }
@@ -153,15 +190,19 @@ class FrontEndController extends Controller
         $table = $this->loadFriends();
 
         $currentUserId = Sentinel::getUser()['id'];
-        $friendID = \DB::table('users')->where('first_name', $request->friendName)->first()->id;
-        $friendName = $request->friendName;
+        $friendName = $request['friendName'];
+        $friendID = \DB::table('users')->where('first_name', $friendName)->first()->id;
+
 
         $connectonTypeOne = $currentUserId . '_' . $friendID;
         $connectonTypeTwo = $friendID . '_' . $currentUserId;
 
         $messages = array();
 
-        if (isset(\DB::table('chats')->where('users_connections', $connectonTypeOne)->first()->message)) {
+        if (
+            isset(\DB::table('chats')->where('users_connections', $connectonTypeOne)->first()->message)
+            || isset(\DB::table('chats')->where('users_connections', $connectonTypeTwo)->first()->message)
+        ) {
             foreach (\DB::table('chats')->where('users_connections', $connectonTypeOne)
                 ->orWhere('users_connections', $connectonTypeTwo)->orderBy('created_at', 'asc')->get() as $message) {
                 $from = '';
@@ -180,6 +221,11 @@ class FrontEndController extends Controller
     public function postMessage(Request $request)
     {
         $currentUserId = Sentinel::getUser()['id'];
+
+        if (\DB::table('users')->where('first_name', $request->friendName)->first() == null) {
+            return Redirect::to('/');
+        }
+
         $friendID = \DB::table('users')->where('first_name', $request->friendName)->first()->id;
 
         $connectonTypeOne = $currentUserId . '_' . $friendID;
