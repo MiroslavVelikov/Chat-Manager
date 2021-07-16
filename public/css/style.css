@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body{
     overflow: hidden;
 }
 
-.chat-box{
+.chat-box {
     position: relative;
     width: 1200px;
     height: 800px;
@@ -21,7 +21,7 @@ body{
 }
 
 /* friends div */
-.friends{
+.friends {
     width: 340px;
     height: 100%;
     float: left;
@@ -29,7 +29,7 @@ body{
     border-right: 2px solid #fff;
 }
 /* user */
-.user{
+.user {
     display: flex;
     align-items: center;
     height: 80px;
@@ -37,7 +37,7 @@ body{
     /* border-bottom: 2px solid #fff; */
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
-.user img{
+.user img {
     width: 50px;
     height: 50px;
     margin-right: 15px;
@@ -45,7 +45,7 @@ body{
     border-radius: 50%;
     background: #fff;
 }
-.user-info{
+.user-info {
     color: #fff;
 }
 /* The Modal (background) */
@@ -67,13 +67,14 @@ body{
 
 /* Modal Content */
 .modal-content {
-    border: none;
     background-color: rgb(185, 185, 185);
     border-radius: 15px;
     margin: auto;
     padding: 10px;
+    border: 1px solid #888;
     width: 60%;
     height: 17%;
+    border: none;
 } 
 /* The Close Button */
 .close {
@@ -97,7 +98,6 @@ body{
 }
 .btn-agree {
     position: absolute; 
-    border: none;
     right: 45%;
     margin: 1%;
     font-size: 100%;
@@ -105,10 +105,11 @@ body{
     padding: 0.7%;
     padding-right: 5%;
     padding-left: 5%;
-    bottom: 62%;
+    bottom: 830px;
     border-radius: 10px;
     background-color: #04AA6D;
     cursor: pointer;
+    border: none;
 }
 .btn-agree:hover {
     border: 1px solid #fff;
@@ -118,7 +119,7 @@ body{
     position: absolute;
     padding-left: 190px;
 }
-#btnDelete{
+#btnDelete {
     background-color: rgb(219, 36, 36);
     width: 45px;
     height: 45px;
@@ -131,18 +132,18 @@ body{
     right: 10px;
     margin-left: 85px;
 }
-#btnDelete:hover{
+#btnDelete:hover {
     border: 1px solid #fff;
     transform: .5s;
 }
 /* end of user */
 
-.friends-list{
+.friends-list {
     height: 640px;
     overflow: auto;
     background: linear-gradient(220deg, #2980b9, #8e44ad);
 }
-#no-friends{
+#no-friends {
     margin-top: 240px;
     margin-left: 40px;
     margin-right: 20px;
@@ -153,7 +154,7 @@ body{
     font-style: italic;
     display:none;
 }
-.list button{
+.list button {
     list-style: none;
     height: 45px;
     width: 70%;
@@ -162,7 +163,7 @@ body{
     font-size: 150%;
     position: relative;
     background: #DCDCDC;
-    border: none;
+    border: none;   
     border-radius: 10px;
     margin-bottom: 5px;
     padding: 0 15px;
@@ -172,7 +173,6 @@ body{
 #ip2 {
     border-radius: 25px;
     border: 2px solid #609;
-    background: #DCDCDC;
     padding: 20px; 
     width: 100px;
     height: 1px;   
@@ -181,8 +181,7 @@ body{
     font-size: 16px;
     padding-right: 30%;
 }
-
-.add-friends{
+.add-friends {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,12 +192,12 @@ body{
 /* end of friends div */
 
 /* chats div */
-.chats{
+.chats {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-.friend{
+.friend {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -207,7 +206,7 @@ body{
     background: #110022;
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
-.friend img{
+.friend img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -215,11 +214,11 @@ body{
     margin-right: 30px;
     margin-left: 15px;
 }
-.scrollbar{
+.scrollbar {
     height: 640px;
     overflow-y: auto;
 }
-.my-chat{
+.my-chat {
     width: 60%;
     word-wrap: break-word;
     background-color: rgb(0, 132, 255);
@@ -228,7 +227,7 @@ body{
     border-radius: 10px 10px 0 10px;
     margin: 10px 10px 10px auto;
 }
-.friend-chat{
+.friend-chat {
     width: 60%;
     word-wrap: break-word;
     background-color: #4F5766;
@@ -237,17 +236,16 @@ body{
     border-radius: 10px 10px 10px 0;
     margin: 10px 10px;
 }
-#ip1{
+#ip1 {
     border-radius: 25px;
     border: 2px solid #609;
-    background: #DCDCDC;
     padding: 20px; 
     width: 70%;
     height: 1px;   
     margin: 20px; 
     font-size: 16px;
 }
-.send-message{
+.send-message {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,7 +269,7 @@ body{
     position: relative;
     /* left: 15px; */
 }
-.send-message button:hover{
+.send-message button:hover {
     border: 1px solid #fff;
     transform: .5s;
 }
@@ -288,7 +286,7 @@ body{
     border-radius: 12px;
     /* left: 15px; */
 }
-.send-message label:hover{
+.send-message label:hover {
     border: 1px solid #fff;
     transform: .5s;
 }
@@ -309,25 +307,25 @@ body{
     position: relative;
     /* left: 15px; */
 }
-.button:hover{
+.button:hover {
     border: 1px solid #fff;
     transform: .5s;
 }
 /* end of chats div */
   /* ------------------------------------------ LOGIN ------------------------------------------ */
 
-  .login-box{
+.login-box {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     background: white;
     overflow: hidden;
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0.4);
-   /*  opacity: 0.7; */
+    /*  opacity: 0.7; */
 }
 
-.login-user{
+.login-user {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -336,75 +334,78 @@ body{
     border-bottom: 2px solid #fff; */
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
-
-.login-user img{
-    width: 150px;
-    height: 150px;
-    margin: 5%;
+.login-user img {
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
     border-radius: 10%;
     background: #fff;
 }
-
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-  }
-
-  /* custom */
-  header
-  {
-      font-family: 'Lobster', cursive;
-      text-align: center;
-      font-size: 25px;	
-  }
-  
-  #info
-  {
-      font-size: 18px;
-      color: #555;
-      text-align: center;
-      margin-bottom: 25px;
-  }
-  
-  a{
-      color: #074E8C;
-  }
-  
-.scrollbar {
-      height: 640px;
-      width: 850px;
-      overflow-y: scroll;
 }
-  
-  .force-overflow {
-      min-height: 450px;
-  }
-  
-  #wrapper
-  {
-      text-align: center;
-      width: 500px;
-      margin: auto;
-  }
-  
-
-#style-1::-webkit-scrollbar-track
-{
+.center p {
+    padding-top: 40px;
+    font-family: monospace;
+    font-size: 40px;
+    font: bold;
+    /* color: #fff; */
+}
+.center button {
+    background-color: #04AA6D;
+    border: none;
+    font-family: monospace;
+    color: white;
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+/* custom scrollbar */
+header {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 25px;	
+}
+#info {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+}
+a {
+    color: #074E8C;
+}
+.scrollbar {
+    height: 640px;
+    width: 850px;
+    overflow-y: scroll;
+}
+.force-overflow {
+    min-height: 450px;
+}
+#wrapper {
+    text-align: center;
+    width: 500px;
+    margin: auto;
+}
+#style-1::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
-
-#style-1::-webkit-scrollbar
-{
+#style-1::-webkit-scrollbar {
 	width: 12px;
 	background-color: #F5F5F5;
 }
-
-#style-1::-webkit-scrollbar-thumb
-{
+#style-1::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;

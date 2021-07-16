@@ -160,7 +160,7 @@ class FrontEndController extends Controller
         $currentUserId = Sentinel::getUser()['id'];
 
         if (\DB::table('users')->where('first_name', $request->friendName)->first() == null) {
-            return Redirect::to('/');
+            return redirect()->back();
         }
 
         $friendId = \DB::table('users')->where('first_name', $request->friendName)->first()->id;

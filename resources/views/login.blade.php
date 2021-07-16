@@ -13,9 +13,6 @@
     <title>Chat</title>
 </head>
 
-
-
-
 <body>
     <div class="login-box">
         <div class="login-user">
@@ -31,7 +28,7 @@
             <div class="center">
                 {{-- <input type="text" id="userName" name="userName" value="{{ $userName }}" /> --}}
                 <input style="display:none" type="text" id="userName" name="userName" value="{{ $userName }}" />
-                <button class="button button1">CONTINUE</button>
+                <button class="login">CONTINUE</button>
             </div>
         </form>
     </div>
